@@ -1,4 +1,4 @@
-package Tarea3PSP;
+package Tarea3;
 import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
