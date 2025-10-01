@@ -5,15 +5,10 @@ import java.util.Random;
 public class Main {
     public static void main(String[] args) {
 
-        Hilos hilo1 = new Hilos("Hilo 1");
-        Hilos hilo2 = new Hilos("Hilo 2");
-        Hilos hilo3 = new Hilos("Hilo 3");
-        Hilos hilo4 = new Hilos("Hilo 4");
-
-        hilo1.start();
-        hilo2.start();
-        hilo3.start();
-        hilo4.start();
+        new Hilos("Hilo 1").start();
+        new Hilos("Hilo 2").start();
+        new Hilos("Hilo 3").start();
+        new Hilos("Hilo 4").start();
     }
 }
 
