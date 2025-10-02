@@ -1,24 +1,37 @@
 package Tarea4;
+import java.io.File;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.util.Scanner;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
-    public static void main(String[] args) {
-
-        try {
-            Scanner menu = new Scanner(System.in);
-            System.out.println("Escribe su comando");
-            String entrada = menu.nextLine();
-
-            String[] comando = entrada.split("\\s+");
-
-            ProcessBuilder pBloc = new ProcessBuilder(comando);
-            pBloc.inheritIO();
-            Process p = pBloc.start();
-        } catch (IOException e) {
-            System.out.println("Erorr: " + e.getMessage());
+    public static void main(String[] args) throws IOException {
+        boolean esLinux = (System.getProperty("os.name").toLowerCase().startsWith("linux"));
+        System.out.println("Mensaje de depuracion funcionamiento so : "+esLinux );
+        ProcessBuilder pb = new ProcessBuilder();
+        if(esLinux){
+            pb.command().add(0,"sh");
+            pb.command().add(1,"-c");
+            pb.command().add(2,"ls");
+        }else {
+            pb.command().add(0,"cmd");
+            pb.command().add(1,"\\c");
+            pb.command().add(2,"dir");
         }
+
+        System.out.println("Mensaje de depuracion comandos: "+pb.command());
+        OutputStreamWriter wr = new OutputStreamWriter(pb.start().getOutputStream());
+        System.out.println("Depuracion del out: "+wr.getEncoding());
+
+
+
+        String ruta = System.getProperty("user.dir");
+        System.out.println("Otra vez por aqui chavales \nEj 1. Quieres saber tu ruta por defecto?\nAqui la tienes my king: "+ruta );
+        String directorio = new File(ruta).getName();
+        System.out.println("El directorio actual es : "+directorio);
+        String rutahome = System.setProperty("user.home", ruta);
+        System.out.println("Ej 2. Tu ruta home es: "+rutahome);
+        String rutaTemp = System.setProperty("java.io.tmpdir",ruta);
+        System.out.println("Ej 3. Tu ruta para temp es: "+ rutaTemp);
     }
 }
