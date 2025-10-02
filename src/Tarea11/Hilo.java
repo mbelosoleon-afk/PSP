@@ -54,6 +54,7 @@ public class Hilo extends Thread{
             new Hilo("Hilo 1",1,nHilos).start();
         }
         scan.close();
+
     }
 }
 
