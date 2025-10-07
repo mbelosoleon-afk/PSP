@@ -1,10 +1,10 @@
 package Tarea9;
 
-    public class Main extends Thread{
+    public class Ejercicio9 extends Thread{
 
 
         public final int fibonacci;
-        public Main(int nveces) {
+        public Ejercicio9(int nveces) {
             this.fibonacci = nveces ;
         }
 
@@ -25,6 +25,6 @@ package Tarea9;
 
 
         public static void main(String[] args) {
-            new Main(10).start();
+            new Ejercicio9(10).start();
         }
     }

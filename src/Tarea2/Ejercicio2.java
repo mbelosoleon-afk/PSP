@@ -1,6 +1,6 @@
 package Tarea2;
 
-public class Main {
+public class Ejercicio2 {
     public static void main(String[] args) {
         int miB = 1024;
         Runtime r = Runtime.getRuntime();

@@ -2,9 +2,8 @@ package Tarea4;
 import java.io.File;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
-import java.util.Scanner;
 
-public class Main {
+public class Ejercicio4 {
     public static void main(String[] args) throws IOException {
         boolean esLinux = (System.getProperty("os.name").toLowerCase().startsWith("linux"));
         System.out.println("Mensaje de depuracion funcionamiento so : "+esLinux );

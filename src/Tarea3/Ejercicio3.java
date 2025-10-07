@@ -3,7 +3,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class Main {
+public class Ejercicio3 {
     public static void main(String[] args) {
         try{
             Scanner name = new Scanner(System.in);
