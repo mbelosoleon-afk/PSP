@@ -1,7 +1,5 @@
 package Tarea12;
 
-import com.sun.source.doctree.SummaryTree;
-
 public class Hilo extends Thread{
         public Hilo(String nombre){
             super(nombre);
