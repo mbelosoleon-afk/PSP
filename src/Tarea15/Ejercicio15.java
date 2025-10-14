@@ -1,49 +1,46 @@
 package Tarea15;
 
 public class Ejercicio15 extends Thread{
-    private String nombre;
-    private Thread hiloanterior;
-    public Ejercicio15(String nombre, Thread hiloanterior){
-        this.nombre = nombre;
-        this.hiloanterior = hiloanterior;
+    public Ejercicio15(String nombre){
+        super(nombre);
     }
-
     @Override
     public void run(){
-        if(hiloanterior != null) {
-            try {
-                hiloanterior.join();
-            }catch (InterruptedException e){
-                Thread.currentThread().interrupt();
-                System.err.println("Error");
-            }
-        }else {
-
-        }
-        for(int i=0; i<8;i++){
-            System.out.println("Soy el Hilo " + nombre + " - Iteracion: " + i);
-
+        for(int i = 0; i < 10; i++){
+            System.out.println("Soy el hilo "+ getName() + " Iteración: "+ i);
             try{
-                Thread.sleep(1000);
-            }catch(InterruptedException e){
-                e.printStackTrace();
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
             }
         }
     }
-    public static void main(String[] args){
-        Ejercicio15 hilo3 = new Ejercicio15("1", null);
-        Ejercicio15 hilo2 = new Ejercicio15("2",hilo3);
-        Ejercicio15 hilo1 = new Ejercicio15("3",hilo2);
-
+    public static void main(String[] args) {
+        // Lanza los 3 hilos
+        Ejercicio15 hilo3 = new Ejercicio15("Hilo3");
         hilo3.start();
-        hilo2.start();
-        hilo1.start();
-
-        try{
-            hilo1.join();
-        }catch (InterruptedException e){
-            Thread.currentThread().interrupt();
+        try {
+            hilo3.join();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
         }
-        System.out.println("Programa principal terminado");
+
+        Ejercicio15 hilo2 = new Ejercicio15("Hilo2");
+        hilo2.start();
+        try {
+            hilo2.join();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
+        Ejercicio15 hilo1 = new Ejercicio15("Hilo1");
+        hilo1.start();
+        try {
+            hilo1.join();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
+        System.out.println("Programa finalizado+");
     }
 }
