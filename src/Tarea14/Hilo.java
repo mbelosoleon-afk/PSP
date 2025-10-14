@@ -9,7 +9,7 @@ public class Hilo extends Thread{
     public void run(){
         if(getName().equalsIgnoreCase("Ingreso")){
             for(int i=0; i<=5000; i++){
-                Caja.capital = Caja.capital + 10;
+                Caja.incrementoContador();
                 System.out.println("Saldo de la caja: " + Caja.capital);
                 try{
                     Thread.sleep(1);
@@ -20,7 +20,7 @@ public class Hilo extends Thread{
         }
         if(getName().equalsIgnoreCase("Venta")){
             for(int i=0; i<=3000; i++){
-                Caja.capital = Caja.capital - 10;
+                Caja.decrementoContador();
                 System.out.println("Saldo de la caja: " + Caja.capital);
                 try{
                     Thread.sleep(1);
@@ -39,7 +39,6 @@ public class Hilo extends Thread{
 
         try{
             ingreso.join();
-            venta.join();
         }catch(InterruptedException e){
             e.printStackTrace();
         }
