@@ -14,7 +14,7 @@ public class Torno extends Thread{
 
     @Override
     public void run() {
-        for(contador=1; contador<asistentes_por_torno; contador++){
+        for(contador=1; contador<=asistentes_por_torno; contador++){
             try {
                 long tiempo = random.nextInt(10) + 1;
                 Thread.sleep(tiempo);

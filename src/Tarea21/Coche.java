@@ -15,6 +15,8 @@ public class Coche extends Thread{
 
     @Override
     public void run() {
+        for(int i=0; i<parking.size(); i++) {
 
+        }
     }
 }
