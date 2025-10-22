@@ -3,33 +3,32 @@ package Tarea19;
 import java.util.Scanner;
 
 public class Ejercicio19 {
-    public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        System.out.println("Escriba el texto");
-        String texto = scan.next();
+    public static void main(String[] args) throws InterruptedException {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Introduce un texto: ");
+        String texto = scanner.nextLine().toLowerCase();
 
-        Hilo h1 = new Hilo(texto,'a');
-        Hilo h2 = new Hilo(texto,'e');
-        Hilo h3 = new Hilo(texto,'i');
-        Hilo h4 = new Hilo(texto,'o');
-        Hilo h5 = new Hilo(texto,'u');
+        Vocales contador = new Vocales();
 
-        h1.start();
-        h2.start();
-        h3.start();
-        h4.start();
-        h5.start();
+        Thread hiloA = new Thread(new Hilo(contador, texto, 'a'));
+        Thread hiloE = new Thread(new Hilo(contador, texto, 'e'));
+        Thread hiloI = new Thread(new Hilo(contador, texto, 'i'));
+        Thread hiloO = new Thread(new Hilo(contador, texto, 'o'));
+        Thread hiloU = new Thread(new Hilo(contador, texto, 'u'));
 
-        try{
-            h1.join();
-            h2.join();
-            h3.join();
-            h4.join();
-            h5.join();
-        }catch (InterruptedException e){
-            System.out.println("Hilo interrumpido");
-        }
-        System.out.println("Total de vocales que tiene la palabra: "+ Contador.contador);
-        scan.close();
+        hiloA.start();
+        hiloE.start();
+        hiloI.start();
+        hiloO.start();
+        hiloU.start();
+
+        hiloA.join();
+        hiloE.join();
+        hiloI.join();
+        hiloO.join();
+        hiloU.join();
+
+        System.out.println("Total de vocales: " + contador.getContadorVocales());
+        scanner.close();
     }
 }

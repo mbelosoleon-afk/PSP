@@ -1,9 +1,13 @@
 package Tarea19;
 
-public class Contador {
-    public static int contador = 0;
+class Vocales {
+    private int totalDeVocales = 0;
 
-    public static synchronized void contador(){
-        contador += 1;
+    public int getContadorVocales() {
+        return totalDeVocales;
+    }
+
+    public synchronized void sumarVocales(int cantidad) {
+        totalDeVocales += cantidad;
     }
 }
