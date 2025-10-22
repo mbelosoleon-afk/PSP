@@ -14,15 +14,18 @@ public class Torno extends Thread{
 
     @Override
     public void run() {
-        for(contador=0; contador<asistentes_por_torno; contador++){
+        for(contador=1; contador<asistentes_por_torno; contador++){
             try {
-                long tiempo = random.nextInt(5) + 1;
+                long tiempo = random.nextInt(10) + 1;
                 Thread.sleep(tiempo);
             }catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
                 return;
             }
-            //Contador.incrementar();
+            Contador.incrementar();
+            System.out.println("Han entrado " + contador + " en el " + nombre);
         }
+        System.out.println(nombre + " lleno");
+
     }
 }

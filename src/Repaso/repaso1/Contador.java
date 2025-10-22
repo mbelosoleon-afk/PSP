@@ -1,13 +1,15 @@
 package repaso1;
 
 public class Contador {
-    private int totalEspectadores = 0;
+    private static int totalEspectadores = 0;
 
-    public synchronized void incrementar() {
+    public static int getTotalEspectadores() {
+        return totalEspectadores;
+    }
+
+    public static synchronized void incrementar() {
         totalEspectadores++;
     }
 
-    public int getTotalEspectadores() {
-        return totalEspectadores;
-    }
+
 }
