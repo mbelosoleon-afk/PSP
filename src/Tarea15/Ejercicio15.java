@@ -18,6 +18,8 @@ public class Ejercicio15 extends Thread{
     public static void main(String[] args) {
         // Lanza los 3 hilos
         Ejercicio15 hilo3 = new Ejercicio15("Hilo3");
+        Ejercicio15 hilo2 = new Ejercicio15("Hilo2");
+        Ejercicio15 hilo1 = new Ejercicio15("Hilo1");
         hilo3.start();
         try {
             hilo3.join();
@@ -25,7 +27,6 @@ public class Ejercicio15 extends Thread{
             throw new RuntimeException(e);
         }
 
-        Ejercicio15 hilo2 = new Ejercicio15("Hilo2");
         hilo2.start();
         try {
             hilo2.join();
@@ -33,14 +34,12 @@ public class Ejercicio15 extends Thread{
             throw new RuntimeException(e);
         }
 
-        Ejercicio15 hilo1 = new Ejercicio15("Hilo1");
         hilo1.start();
         try {
             hilo1.join();
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-
-        System.out.println("Programa finalizado+");
+        System.out.println("Programa finalizado");
     }
 }
