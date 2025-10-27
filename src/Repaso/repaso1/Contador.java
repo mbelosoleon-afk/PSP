@@ -10,6 +10,4 @@ public class Contador {
     public static synchronized void incrementar() {
         totalEspectadores++;
     }
-
-
 }
