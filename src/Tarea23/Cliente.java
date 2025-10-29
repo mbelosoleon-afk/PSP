@@ -1,13 +1,17 @@
 package Tarea23;
 
 public class Cliente extends Thread{
-    SuperMercado superMercado;
-
-    public Cliente(SuperMercado mercado){
-        superMercado = mercado;
+    private Caja caja;
+    public Cliente(String nombre, Caja caja){
+        super(nombre);
+        this.caja = caja;
     }
     @Override
     public void run(){
-        superMercado.entrarCaja();
+        try{
+            caja.entrarYPagar(this.getName());
+        }catch (InterruptedException e){
+            e.printStackTrace();
+        }
     }
 }
