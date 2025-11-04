@@ -22,9 +22,10 @@ public class Main {
                 case 2 -> opcion = 22;
                 case 3 -> opcion = 80;
                 case 4 -> opcion = 443;
-                //case 5 y 6
+                case 5 -> opcion = pedirPuerto(scan);
+                default -> opcion = -1;
             }
-            if(opcion<0) break;
+            if(opcion<=0) break;
             try{
                 Socket socket = new Socket(ip,opcion);
                 resumen.add("IP: " + ip + " Puerto: " + opcion + " Abierto");
@@ -36,5 +37,11 @@ public class Main {
             }
             System.out.println(resumen);
         }
+    }
+    private static int pedirPuerto(Scanner scan){
+        System.out.println("Elige el puerto a conectar");
+        int puerto;
+        puerto = scan.nextInt();
+        return puerto;
     }
 }
