@@ -22,5 +22,6 @@ public class Main {
         }catch (UnknownHostException e){
             System.out.println("Host local no encontrado: " + e.getLocalizedMessage());
         }
+        scan.close();
     }
 }
