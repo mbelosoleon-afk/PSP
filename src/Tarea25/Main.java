@@ -6,7 +6,7 @@ import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Main { 
+public class Main {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         int opcion;
@@ -22,7 +22,7 @@ public class Main {
                 case 2 -> opcion = 22;
                 case 3 -> opcion = 80;
                 case 4 -> opcion = 443;
-                case 5 -> opcion = pedirPuerto(scan);
+                case 5 -> opcion = scan.nextInt();
                 default -> opcion = -1;
             }
             if(opcion<=0) break;
@@ -37,11 +37,5 @@ public class Main {
             }
             System.out.println(resumen);
         }
-    }
-    private static int pedirPuerto(Scanner scan){
-        System.out.println("Elige el puerto a conectar");
-        int puerto;
-        puerto = scan.nextInt();
-        return puerto;
     }
 }
