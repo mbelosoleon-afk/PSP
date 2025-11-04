@@ -7,8 +7,8 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args){
         Scanner scan = new Scanner(System.in);
-        String direccion = scan.nextLine();
         System.out.println("Escriba la dirección");
+        String direccion = scan.nextLine();
         try{
             InetAddress ip = InetAddress.getByName(direccion);
             System.out.println(ip.getHostName() + " - " + ip.getHostAddress());
