@@ -25,8 +25,6 @@ public class Servidor {
                 //Crea un hilo (una "ventanilla") y le pasa el cliente
                 GestorClientes hilo = new GestorClientes(cliente);
                 hilo.start();
-
-
             }
         }catch (Exception e){
             e.printStackTrace();
