@@ -27,11 +27,12 @@ public class Servidor {
 
             while (true){
                 mensaje = lector.readLine();
-                respuesta = "ECO: " + mensaje;
-                escritor.println(respuesta);
                 if(mensaje == null || mensaje.equalsIgnoreCase("adios")){
                     break;
                 }
+                respuesta = "ECO: " + mensaje;
+                escritor.println(respuesta);
+
             }
 
             System.out.println("El servidor ha respondido");
@@ -41,8 +42,5 @@ public class Servidor {
         }catch (Exception e){
             e.printStackTrace();
         }
-
-
-
     }
 }

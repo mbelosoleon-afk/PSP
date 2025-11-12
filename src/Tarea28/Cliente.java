@@ -1,4 +1,4 @@
-package Tarea27;
+package Tarea28;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -27,7 +27,7 @@ public class Cliente {
                 System.out.println("Escribe un mensaje");
                 mensaje = scan.nextLine();
                 escritor.println(mensaje);
-                if(mensaje.equalsIgnoreCase("adios")){
+                if(mensaje.equalsIgnoreCase("adios") || mensaje == null){
                     break;
                 }
                 respuesta = lector.readLine();
