@@ -41,9 +41,9 @@ public class Servidor {
             System.out.println("Envié respuesta al cliente");
 
         } catch (SocketException ex) {
-            System.out.println("Error con el socket(servidor): "+ ex.getMessage());
+            System.out.println("Error: "+ ex.getMessage());
         } catch (IOException ex) {
-            System.out.println("Error IO(servidor): "+ ex.getMessage());
+            System.out.println("Error: "+ ex.getMessage());
         }
     }
 }
