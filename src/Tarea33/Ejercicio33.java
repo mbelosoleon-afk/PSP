@@ -41,6 +41,6 @@ public class Ejercicio33 {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-
+        scan.close();
     }
 }
