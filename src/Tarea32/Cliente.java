@@ -22,7 +22,7 @@ public class Cliente {
             DatagramPacket peticion = new DatagramPacket(buffer, buffer.length);
 
 
-            String msj = Arrays.toString(palabras);
+            String msj = Arrays.toString(palabras).trim();
             buffer = msj.getBytes();
 
             DatagramPacket pregunta = new DatagramPacket(buffer, buffer.length, direccionServidor, puerto_servidor);
@@ -35,6 +35,8 @@ public class Cliente {
 
             String msjServidor = new String(peticion.getData(),0, peticion.getLength());
             System.out.println("Respuesta del servidor = " + msjServidor);
+
+            System.out.println("La longitud de la palabra es de: " + msjServidor.length() + " caracteres");
 
         } catch (SocketException ex) {
             System.out.println("Error: "+ ex.getMessage());
