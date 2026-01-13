@@ -31,7 +31,7 @@ public class Ejercicio38 {
             System.out.println("Ha iniciado sesión correctamente, los Hash son iguales");
         }else {
             System.out.println("Contraseña incorrecta, los Hash son distintos");
-            System.out.println(resultado2);s
+            System.out.println(resultado2);
         }
 
     }
