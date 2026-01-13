@@ -100,7 +100,7 @@ public class Ejercicio34 {
             throw new RuntimeException(e);
         }
 
-        if(tiempoPrimera>tiempoSegunda){
+        if(tiempoPrimera<tiempoSegunda){
             System.out.println("La web más rápida es: " + primera + " con " + tiempoPrimera + " ms");
         }else {
             System.out.println("La web más rápida es: " + segunda + " con " + tiempoSegunda + " ms");
