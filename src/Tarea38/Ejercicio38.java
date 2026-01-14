@@ -28,9 +28,9 @@ public class Ejercicio38 {
         String resultado2 = cifrar(logeo);
 
         if(resultado.equals(resultado2)) {
-            System.out.println("Ha iniciado sesión correctamente, los Hash son iguales");
+            System.out.println("Acceso concedido");
         }else {
-            System.err.println("Contraseña incorrecta, los Hash son distintos");
+            System.err.println("Credenciales inválidas");
             System.out.println(resultado2);
         }
 
